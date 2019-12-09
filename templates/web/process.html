@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运算结果</title>
+    <style>.box {
+        background-color: #ffffff;
+        position: absolute;
+        left: 50%;
+        /*top: 50%;*/
+        margin: 10px 0 0 -300px;
+    }
+    </style>
+
+</head>
+<body>
+<table class="box" width="600" border="0">
+    <style>.bold {
+        height: 2px;
+        text-align: center;
+        background-color: #000000;
+    }</style>
+    <style>.blank {
+        height: 5px;
+        text-align: center;
+        background-color: #ffffff;
+    }</style>
+    <tr>
+        <td colspan="3" style="text-align:center;">
+            <h1>运算结果</h1>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" class="bold">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" class="blank">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1" style="text-align: center; vertical-align: center">
+            α = {{ alpha }}<br/>
+            β = {{ beta }}
+        </td>
+        <td colspan="2" style="text-align: center; vertical-align: center">
+            <img src="/images/{{ image }}" , alt="Fig" width="400">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" class="bold">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" class="blank">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center; vertical-align: center">
+            <img src="/images/{{ anime }}" , alt="Anime" width="600">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" class="bold">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" class="blank">
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

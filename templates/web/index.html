@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>混凝土等效矩形截面应力图系数计算</title>
+    <style>.box {
+        background-color: #ffffff;
+        position: absolute;
+        left: 50%;
+        /*top: 50%;*/
+        margin: 10px 0 0 -400px;
+    }
+    </style>
+</head>
+
+
+<body>
+<form class="box" method="post" action="/process">
+    <table width="800" border="0">
+        <style>.bold {
+            height: 2px;
+            text-align: center;
+            background-color: #000000;
+        }</style>
+        <style>.blank {
+            height: 5px;
+            text-align: center;
+            background-color: #ffffff;
+        }</style>
+        <style>.standard_select {
+            width: 100px;
+        }</style>
+        <style>.standard_input {
+            width: 50px;
+        }</style>
+        <style>.normal_td {
+            height: 20px;
+            width: 300px;
+            vertical-align: top;
+            text-align: center;
+        }</style>
+        <style>.left_td {
+            height: 20px;
+            width: 300px;
+            vertical-align: top;
+            text-align: left;
+        }</style>
+        <tr>
+            <td colspan="3" style="text-align:center;">
+                <h1>混凝土等效矩形截面应力图系数计算</h1>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="bold">
+            </td>
+        </tr>
+        <tr>
+            <td class="normal_td">
+                混凝土截面
+                <select class="standard_select" id="idshape_type" name="shape_type">
+                    <option value="REC">矩形</option>
+                    <option value="T">T形</option>
+                    <option value="CIR">圆形</option>
+                    <option value="RING">环形</option>
+                </select>
+            </td>
+            <td class="normal_td">
+                混凝土截面宽 b
+            </td>
+            <td class="left_td">
+                <input class="standard_input" id="idb" type="text" name="b" value="">&nbsp;mm
+            </td>
+        </tr>
+        <tr>
+            <td class="normal_td">
+                混凝土等级
+                <select class="standard_select" id="idrc_type" name="rc_type">
+                    <option value="C15">C15</option>
+                    <option value="C20">C20</option>
+                    <option value="C25">C25</option>
+                    <option value="C30">C30</option>
+                    <option value="C35">C35</option>
+                    <option value="C40">C40</option>
+                    <option value="C45">C45</option>
+                    <option value="C50">C50</option>
+                    <option value="C55">C55</option>
+                    <option value="C60">C60</option>
+                    <option value="C65">C65</option>
+                    <option value="C70">C70</option>
+                    <option value="C75">C75</option>
+                    <option value="C80">C80</option>
+                </select><br/>
+            <td class="normal_td">
+                混凝土截面高 h
+            </td>
+            <td class="left_td">
+                <input class="standard_input" id="idh" type="text" name="h" value="">&nbsp;mm<br/>
+            </td>
+        </tr>
+        <tr>
+            <td class="normal_td">
+                &nbsp;混凝土σ-ε &nbsp;
+                <select class="standard_select" id="idmode" name="mode">
+                    <option value="GB">规范公式</option>
+                    <option value="GZH">过镇海曲线</option>
+                </select><br/>
+            </td>
+            <td class="normal_td">
+                T形截面翼缘宽 b<sub>f</sub>
+            </td>
+            <td class="left_td">
+                <input class="standard_input" id="idbf" type="text" name="bf" value="">&nbsp;mm
+            </td>
+        </tr>
+        <tr>
+            <td  rowspan="3" class="normal_td">
+                <img src="images/shape.png" , alt="shape" width="350">
+            </td>
+            <td class="normal_td">
+                T形截面翼缘高 h<sub>f</sub>
+            </td>
+            <td class="left_td">
+                <input class="standard_input" id="idhf" type="text" name="hf" value="">&nbsp;mm<br/>
+            </td>
+        </tr>
+        <tr>
+            <td class="normal_td">
+                环形截面外直径 d<br/>
+                (圆形截面直径 d)
+            </td>
+            <td style="height:40px; width:300px; text-align:left; vertical-align: center;">
+                <input class="standard_input" id="idd_out" type="text" name="d_out" value="">&nbsp;mm
+            </td>
+        </tr>
+        <tr>
+            <td class="normal_td">
+                环形截面内直径 d'
+            </td>
+            <td class="left_td">
+                <input class="standard_input" id="idd_in" type="text" name="d_in" value="">&nbsp;mm<br/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="blank">
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3" class="bold">
+            </td>
+        <tr>
+            <td colspan="3" class="blank">
+            </td>
+        </tr>
+        </tr>
+        <tr>
+            <td class="normal_td">
+                &nbsp;&nbsp;钢筋牌号&nbsp;&nbsp;&nbsp;
+                <select class="standard_select" id="idsteel_type" name="steel_type">
+                    <option value="HPB300">HPB300</option>
+                    <option value="HRB335">HRB335/HRBF335</option>
+                    <option value="HRB400">HRB400/HRBF400/RRB400</option>
+                    <option value="HRB500">HRB500/HRBF500</option>
+                </select>
+            </td>
+            <td class="normal_td">
+                钢筋面积 A<sub>s</sub>
+            </td>
+            <td class="left_td">
+                <input class="standard_input" id="idAs" type="text" name="A_s" value="">&nbsp;mm<sup>2</sup><br/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="bold">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="blank">
+            </td>
+        </tr>
+        <tr>
+            <td class="normal_td">
+                <input type="checkbox" id="idanime" name="anime"> 显示截面应力变化过程
+            </td>
+            <td colspan="2" style="text-align:center;">
+
+                <input type="submit" value="提交" onclick="submmit_onclick()">&nbsp;&nbsp;&nbsp;&nbsp;
+                <script type="text/javascript">
+                    function submmit_onclick() {
+                        alert("请注意，由于服务器运算极慢，加载需要20~90s，若超过该时间，服务器判断超时以节约计算资源。同时，为提升用户体验，可不勾选“显示截面应力变化过程”。");
+                    }
+                </script>
+
+                <button type="button" onclick="button_onclick()">
+                    取默认值
+                    <script type="text/javascript">
+                        function button_onclick() {
+                            var oshape = document.getElementById('idshape_type');
+                            var ob = document.getElementById('idb');
+                            var oh = document.getElementById('idh');
+                            var orc_type = document.getElementById('idrc_type');
+                            var oAs = document.getElementById('idAs');
+                            var osteel_type = document.getElementById('idsteel_type');
+                            var omode = document.getElementById('idmode');
+                            var oanime = document.getElementById('idanime');
+                            oshape.value = "REC";
+                            ob.value = "250";
+                            oh.value = "500";
+                            orc_type.value = "C30";
+                            oAs.value = "1256";
+                            osteel_type.value = "HRB335";
+                            omode.value = "GB";
+                            oanime.checked = false;
+                        }
+                    </script>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align:left;">
+                <br/>说明：<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;1.输入相关参数，然后点击“提交”,计算结果包括等效矩形截面应力图系数和图表<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;2.由于服务器运算能力及网络带宽限制，需要运行20~60s，请耐心等待<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;3.为提升用户体验，可不勾选“显示截面应力变化过程”，以尽快加载<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;4.没时间做前端了，导致无法异步POST，以至于页面需全部加载完才能显示，就这样吧~<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;5.版本v0.1，源代码尚未开源至github，可直接联系开发者，获取帮助文档<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;6.开发者:张强，zhangqia16@mails.tsinghua.edu.cn<br/>
+            </td>
+        </tr>
+
+    </table>
+</form>
+</body>
+</html>
